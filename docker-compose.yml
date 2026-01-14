@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      WEBHOOK_SECRET: ${WEBHOOK_SECRET}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - data:/data
+
+volumes:
+  data:
